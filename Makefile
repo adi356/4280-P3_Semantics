@@ -2,19 +2,19 @@ CC         = g++
 CFLAGS     = -Wall -g -std=c++11
 
 MASTER_SRC = main.cpp
-SRC        = token.h scanner.h parser.h testTree.h
+SRC        = token.h scanner.h parser.h testTree.h semantics.h
 AUX		   = node.h
 
 MASTER_OBJ = $(MASTER_SRC:.cpp=.o)
 OBJ        = $(SRC:.h=.o)
 
-MASTER     = P2
+MASTER     = P3
 
 OUTPUT     = $(MASTER)
 all: $(OUTPUT)
 
 
-%.o: %.cpp $(SRC)
+%.o: %.cpp $(SRC) $(AUX)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(MASTER): $(MASTER_OBJ) $(OBJ)

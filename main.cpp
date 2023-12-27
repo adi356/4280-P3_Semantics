@@ -7,6 +7,7 @@
 
 #include "parser.h"
 #include "testTree.h"
+#include "semantics.h"
 
 using namespace std;
 
@@ -75,10 +76,14 @@ int main(int argc, char *argv[]) {
 		}
 	}
 
-	/* Start test program */
+	/* Compiler Driver */
 	Parser parser(fileName);
-	NodeT* root = parser.parse();
-	traversePreorder(root);
+    Semantics semantics;
 
+    //Invoke functionality
+	NodeT* root = parser.parse();
+    semantics.validate(root);
+    cout << "Semantics check complete" << endl;
+	//traversePreorder(root);
 	return 0;
 }

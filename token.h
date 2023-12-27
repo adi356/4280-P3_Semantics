@@ -14,7 +14,8 @@ typedef struct token
 	tokenID id;         //token category
 	int line_number;    //token location
 	string data;		//the actual scan value of token
-	string value;       //description value of the token
+	string value;
+    int blockNum = 0;       //description value of the token
 } Token;
 
 /* Language Class */
